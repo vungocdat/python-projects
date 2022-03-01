@@ -1,0 +1,36 @@
+# Caesar Cipher
+# the program will ask for an action: encode (type 'e') or decode (type 'd')
+# then ask for a text for the action
+# lastly for the shift number
+
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2',
+'3', '4', '5', '6', '7', '8', '9']
+alphabet_lenght = len(alphabet)
+
+
+action = input("Type 'e' for encode a message or 'd' for decode a message: ").lower()
+message = input("\nType your message:\n").lower()
+shift = int(input("\nSelect a shift number: "))
+
+#encode function will shift the letters and print the encoded message
+def encode(message, shift):
+    text = ""
+    for i in message:
+        encoded_letter = alphabet.index(i) + shift
+        # if it is at the end of the list it will start fro the beginning
+        while encoded_letter >= alphabet_lenght:
+            encoded_letter -= alphabet_lenght
+        text += alphabet[encoded_letter]
+    print(f"Encoded text:\n{text}")
+
+#dencode function will shift the letters and print the encoded message
+def decode(message, shift):
+    text = ""
+    for i in message:
+        decoded_letter = alphabet.index(i) - shift
+        # if it is at the beginning already it will jump at the end
+        while decoded_letter < 0:
+            decoded_letter += alphabet_lenght
+        text += alphabet[decoded_letter]
+    print(f"Decoded text:\n{text}")
