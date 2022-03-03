@@ -40,6 +40,17 @@ def random_colour():
     return result
 
 
+def draw_circles(obj_name, circle_num):
+    angle = 360 / circle_num
+    obj_name.speed(0)
+    starting_circle = 0
+    for i in range(circle_num):
+        obj_name.pencolor(random_colour())
+        obj_name.setheading(starting_circle)    # turns a turtle by a little
+        obj_name.circle(100)
+        starting_circle += angle
+
+
 direction = [0, 90, 180, 270]
 
 # to be able to change colour based on RBG colors
@@ -55,6 +66,8 @@ tim.shape("turtle")
 # steps = 200
 # random_walk(tim, steps)
 
+# circles = 100
+# draw_circles(tim, circles)
 
 screen = turtle.Screen()
 screen.exitonclick()
