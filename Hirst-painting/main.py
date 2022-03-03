@@ -21,6 +21,7 @@ import turtle as t
 import random
 
 
+# print 10 dots on 1 line
 def line_of_dots():
     for i in range(10):
         arrow.dot(20, random.choice(colors))
