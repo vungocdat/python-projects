@@ -45,7 +45,7 @@ for i in range(10):
     line_of_dots()
     position_y -= 50
 
-arrow.color("white")
+arrow.hideturtle()
 
 screen.exitonclick()
 
