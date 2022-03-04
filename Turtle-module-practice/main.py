@@ -66,8 +66,8 @@ tim.shape("turtle")
 # steps = 200
 # random_walk(tim, steps)
 
-# circles = 100
-# draw_circles(tim, circles)
+circles = 100
+draw_circles(tim, circles)
 
 screen = turtle.Screen()
 screen.exitonclick()
