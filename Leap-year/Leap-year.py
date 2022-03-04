@@ -1,5 +1,5 @@
-# The program will take an year from the input and decide if it is a leap year
-# or not
+# The program will take an year from the input and decide 
+# if it is a leap year or not
 
 # on every year that is evenly divisible by 4
 # EXCEPT every year that is evenly divisible by 100
