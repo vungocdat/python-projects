@@ -25,8 +25,6 @@ while snake_alive:
     for i in snake:
         i.forward(10)
 
-# next step is to made snake moving in a way that last part will go to the previous part etc
-# udemy 185 - 12:00
 
 
 
