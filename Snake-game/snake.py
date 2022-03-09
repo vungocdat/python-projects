@@ -1,7 +1,11 @@
 import turtle as t
 
-STARTING_BODY = 3
-
+STARTING_BODY = 3   # number of squares
+VELOCITY = 20
+UP = 90
+DOWN = 270
+LEFT = 180
+RIGHT = 0
 
 class Snake:
 
@@ -9,6 +13,7 @@ class Snake:
     def __init__(self):
         self.snake = []
         self.create_snake()
+        self.head = self.snake[0]
 
     def create_snake(self):
         for i in range(STARTING_BODY):
@@ -23,4 +28,21 @@ class Snake:
             previous_x = self.snake[i - 1].xcor()
             previous_y = self.snake[i - 1].ycor()
             self.snake[i].goto(previous_x, previous_y)
-        self.snake[0].forward(20)
+        self.head.forward(VELOCITY)
+
+    def up(self):
+        if self.head.heading() != DOWN:
+            self.head.setheading(UP)
+
+    def down(self):
+        if self.head.heading() != UP:
+            self.head.setheading(DOWN)
+
+    def left(self):
+        if self.head.heading() != RIGHT:
+            self.head.setheading(LEFT)
+
+    def right(self):
+        if self.head.heading() != LEFT:
+            self.head.setheading(RIGHT)
+
