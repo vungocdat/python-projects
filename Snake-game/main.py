@@ -13,7 +13,7 @@ screen.title("Retro snake game")
 set_screen = SetScreen()
 snake = Snake()
 food = Food()
-score = Scoreboard()
+scoreboard = Scoreboard()
 
 # listen to take input from the user (on arrow keys)
 screen.listen()
@@ -33,16 +33,16 @@ while snake_alive:
     # detect the head of the snake is near the food (to be considered eaten) then show the food elsewhere
     if snake.head.distance(food) < 15:
         food.show_food()
-        score.add_point()
-        score.display_score()
+        scoreboard.add_point()
+        scoreboard.display_score()
 
-    # detect collision
+    # detect collision with the wall
     max_x = set_screen.get_max_x()
     max_y = set_screen.get_max_y()
     min_x = set_screen.get_min_x()
     min_y = set_screen.get_min_y()
     if snake.head.xcor() > max_x or snake.head.ycor() > max_y or snake.head.xcor() < min_x or snake.head.ycor() < min_y:
-        print("Game Over")
+        scoreboard.game_over()
         snake_alive = False
 
 
