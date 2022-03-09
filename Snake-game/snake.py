@@ -16,12 +16,20 @@ class Snake:
         self.create_snake()
         self.head = self.snake[0]
 
+    # snake comes out from a hole
     def create_snake(self):
         for i in range(STARTING_BODY):
-            snake_body = t.Turtle(shape="square")
-            snake_body.penup()  # to not draw a line while moving
-            snake_body.setx(i * -20)
-            self.snake.append(snake_body)
+            i = (0, 0)
+            self.add_body(i)
+
+    def add_body(self, position):
+        snake_body = t.Turtle(shape="square")
+        snake_body.penup()  # to not draw a line while moving
+        snake_body.goto(position)
+        self.snake.append(snake_body)
+
+    def extend_body(self):
+        self.add_body(self.snake[-1].position())
 
     def move(self):
         # start moving the last part of snake and move it to the position, where the previous part was

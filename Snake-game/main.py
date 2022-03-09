@@ -33,6 +33,7 @@ while snake_alive:
     # detect the head of the snake is near the food (to be considered eaten) then show the food elsewhere
     if snake.head.distance(food) < 15:
         food.show_food()
+        snake.extend_body()
         scoreboard.add_point()
         scoreboard.display_score()
 
@@ -42,8 +43,13 @@ while snake_alive:
     min_x = set_screen.get_min_x()
     min_y = set_screen.get_min_y()
     if snake.head.xcor() > max_x or snake.head.ycor() > max_y or snake.head.xcor() < min_x or snake.head.ycor() < min_y:
-        scoreboard.game_over()
         snake_alive = False
+        scoreboard.game_over()
 
+    # detect collision with the body
+    for i in snake.snake[1:]:   # loop through the list excluding the head (on position 0)
+        if snake.head.distance(i) < 10:
+            snake_alive = False
+            scoreboard.game_over()
 
 screen.exitonclick()
