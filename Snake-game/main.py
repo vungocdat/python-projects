@@ -5,10 +5,12 @@ import time
 from snake import Snake
 from food import Food
 from scoreborard import Scoreboard
+from screen import SetScreen
 
 screen = t.Screen()
 screen.title("Retro snake game")
 
+set_screen = SetScreen()
 snake = Snake()
 food = Food()
 score = Scoreboard()
@@ -34,6 +36,14 @@ while snake_alive:
         score.add_point()
         score.display_score()
 
+    # detect collision
+    max_x = set_screen.get_max_x()
+    max_y = set_screen.get_max_y()
+    min_x = set_screen.get_min_x()
+    min_y = set_screen.get_min_y()
+    if snake.head.xcor() > max_x or snake.head.ycor() > max_y or snake.head.xcor() < min_x or snake.head.ycor() < min_y:
+        print("Game Over")
+        snake_alive = False
 
 
 screen.exitonclick()
