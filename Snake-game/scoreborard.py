@@ -1,4 +1,5 @@
 import turtle as t
+import screen as s
 
 
 class Scoreboard(t.Turtle):
@@ -8,7 +9,7 @@ class Scoreboard(t.Turtle):
         self.penup()
         self.speed("fastest")
         self.hideturtle()
-        self.sety(400)
+        self.sety(s.MAX_X)
         self.score = 0
         self.display_score()
 

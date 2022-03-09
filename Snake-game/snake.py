@@ -1,11 +1,12 @@
 import turtle as t
 
-STARTING_BODY = 3   # number of squares
+STARTING_BODY = 3  # number of squares
 VELOCITY = 20
 UP = 90
 DOWN = 270
 LEFT = 180
 RIGHT = 0
+
 
 class Snake:
 
@@ -45,4 +46,3 @@ class Snake:
     def right(self):
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
-
