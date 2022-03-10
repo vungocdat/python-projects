@@ -25,5 +25,17 @@ class SetScreen(t.Turtle):
         self.goto(MAX_X, -MAX_Y)
         self.goto(MAX_X, MAX_Y)
         # draw a middle line
+        self.goto(0, MAX_Y)
+        self.setheading(270)
+        self.penup()
+        self.forward(8)     # adjust to make middle line look better
+        self.pensize(3)
+        while self.ycor() > -MAX_Y:
+            self.pendown()
+            self.forward(15)
+            self.penup()
+            self.forward(15)
+
+
 
         screen.exitonclick()
