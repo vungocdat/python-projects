@@ -1,6 +1,7 @@
 # set game screen with size of height = 600 and width = 800
 
 import turtle as t
+
 t.colormode(1)
 
 MAX_X = 400
@@ -28,14 +29,12 @@ class SetScreen(t.Turtle):
         self.goto(0, MAX_Y)
         self.setheading(270)
         self.penup()
-        self.forward(8)     # adjust to make middle line look better
+        self.forward(8)  # adjust to make middle line look better
         self.pensize(3)
         while self.ycor() > -MAX_Y:
             self.pendown()
             self.forward(15)
             self.penup()
             self.forward(15)
-
-
 
         screen.exitonclick()
