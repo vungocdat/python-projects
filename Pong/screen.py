@@ -13,9 +13,6 @@ class SetScreen(t.Turtle):
     # Set screen to black and draw the edges of the game
     def __init__(self):
         super().__init__()
-        screen = t.Screen()
-        screen.bgcolor("black")
-        self.speed("fastest")
         self.hideturtle()
         self.penup()
         self.goto(MAX_X, MAX_Y)
@@ -37,4 +34,10 @@ class SetScreen(t.Turtle):
             self.penup()
             self.forward(15)
 
-        screen.exitonclick()
+    @staticmethod
+    def get_max_x():
+        return MAX_X
+
+    @staticmethod
+    def get_max_y():
+        return MAX_Y
