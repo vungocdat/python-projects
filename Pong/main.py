@@ -2,7 +2,10 @@
 
 from screen import SetScreen
 from paddle import Paddle
+from ball import Ball
 import turtle as t
+import time
+
 
 # set gaming screen
 screen = t.Screen()
@@ -23,11 +26,16 @@ screen.onkey(paddle_left.move_down, "s")
 screen.onkey(paddle_right.move_up, "Up")
 screen.onkey(paddle_right.move_down, "Down")
 
+# set a ball
+ball = Ball()
+
 
 
 game = True
 while game:
     screen.update()
+    time.sleep(0.05)
+    ball.move()
 
 
 screen.exitonclick()

@@ -18,6 +18,7 @@ class SetScreen(t.Turtle):
         self.goto(MAX_X, MAX_Y)
         self.pendown()
         self.pencolor("white")
+        self.width(10)
         self.goto(-MAX_X, MAX_Y)
         self.goto(-MAX_X, -MAX_Y)
         self.goto(MAX_X, -MAX_Y)
