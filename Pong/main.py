@@ -12,15 +12,16 @@ screen.title("Pong")
 set_screen = SetScreen()
 
 # set left and right paddles
-paddle_left = Paddle()
-paddle_left.set_left()
-paddle_right = Paddle()
-paddle_right.set_right()
+paddle_left = Paddle(-350)
+paddle_right = Paddle(350)
 
-# allow paddle to move
+
+# allow paddles to move
 screen.listen()
-screen.onkey(paddle_left.move_up, "Up")
-screen.onkey(paddle_left.move_down, "Down")
+screen.onkey(paddle_left.move_up, "w")
+screen.onkey(paddle_left.move_down, "s")
+screen.onkey(paddle_right.move_up, "Up")
+screen.onkey(paddle_right.move_down, "Down")
 
 
 
