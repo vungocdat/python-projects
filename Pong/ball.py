@@ -2,7 +2,6 @@ import turtle as t
 from screen import SetScreen
 
 
-
 class Ball(t.Turtle):
 
     def __init__(self):
@@ -13,8 +12,14 @@ class Ball(t.Turtle):
         self.penup()
         self.goto(0, 0)  # start in the middle
         self.speed("slow")
+        self.x_move = 10
+        self.y_move = 10
 
     def move(self):
-        new_x = self.xcor() + 10
-        new_y = self.ycor() + 10
+        new_x = self.xcor() + self.x_move
+        new_y = self.ycor() + self.y_move
         self.goto(new_x, new_y)
+
+    # reverse the movement of the Y
+    def bounce_y(self):
+        self.y_move *= -1

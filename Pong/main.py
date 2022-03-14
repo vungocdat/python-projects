@@ -30,12 +30,17 @@ screen.onkey(paddle_right.move_down, "Down")
 ball = Ball()
 
 
-
 game = True
 while game:
     screen.update()
     time.sleep(0.05)
     ball.move()
+
+    if ball.ycor() > (set_screen.get_max_y() - 20) or ball.ycor() < (-set_screen.get_max_y() + 20):
+        ball.bounce_y()
+
+    if ball.xcor() == set_screen.get_max_x() or ball.xcor() == -set_screen.get_max_x():
+        game = False
 
 
 screen.exitonclick()
