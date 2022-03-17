@@ -36,10 +36,15 @@ while game:
     time.sleep(0.05)
     ball.move()
 
+    # bouncing, number 20 because the size of the ball is 20 so it will bounce right when it hits the wall
     if ball.ycor() > (set_screen.get_max_y() - 20) or ball.ycor() < (-set_screen.get_max_y() + 20):
         ball.bounce_y()
 
-    if ball.xcor() == set_screen.get_max_x() or ball.xcor() == -set_screen.get_max_x():
+    # detect colision with right paddle
+    if ball.distance(paddle_right) < 50 and ball.xcor() > 320 or ball.distance(paddle_left) < 50 and ball.xcor() < -320:
+        ball.bounce_x()
+
+    if ball.xcor() > set_screen.get_max_x() or ball.xcor() < -set_screen.get_max_x():
         game = False
 
 
