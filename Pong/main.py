@@ -4,7 +4,6 @@ from screen import SetScreen
 from paddle import Paddle
 from ball import Ball
 import turtle as t
-import time
 
 
 # set gaming screen
@@ -33,7 +32,6 @@ ball = Ball()
 game = True
 while game:
     screen.update()
-    #time.sleep(0.05)
     ball.move()
 
     # bouncing, number 20 because the size of the ball is 20 so it will bounce right when it hits the wall
@@ -45,7 +43,7 @@ while game:
         ball.bounce_x()
 
     if ball.xcor() > set_screen.get_max_x() or ball.xcor() < -set_screen.get_max_x():
-        game = False
+        ball.reset_position()
 
 
 screen.exitonclick()

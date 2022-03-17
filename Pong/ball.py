@@ -1,4 +1,5 @@
 import turtle as t
+import time
 from screen import SetScreen
 
 
@@ -26,3 +27,9 @@ class Ball(t.Turtle):
 
     def bounce_x(self):
         self.x_move *= -1
+
+    # ball start off the center again and with the opposite direction
+    def reset_position(self):
+        self.goto(0, 0)
+        time.sleep(1)
+        self.bounce_x()
