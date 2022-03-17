@@ -11,9 +11,9 @@ class Ball(t.Turtle):
         self.color("white")
         self.penup()
         self.goto(0, 0)  # start in the middle
-        self.speed("slow")
-        self.x_move = 7
-        self.y_move = 7
+        self.speed("slowest")
+        self.x_move = 0.06
+        self.y_move = 0.06
 
     def move(self):
         new_x = self.xcor() + self.x_move
