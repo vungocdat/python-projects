@@ -4,6 +4,7 @@ from screen import SetScreen
 from paddle import Paddle
 from ball import Ball
 import turtle as t
+from scoreboard import Scoreboard
 
 
 # set gaming screen
@@ -17,6 +18,8 @@ set_screen = SetScreen()
 paddle_left = Paddle(-350)
 paddle_right = Paddle(350)
 
+# show scoreboard
+scoreboard = Scoreboard()
 
 # allow paddles to move
 screen.listen()
@@ -38,11 +41,17 @@ while game:
     if ball.ycor() > (set_screen.get_max_y() - 20) or ball.ycor() < (-set_screen.get_max_y() + 20):
         ball.bounce_y()
 
-    # detect colision with right paddle
+    # detect collision with right paddle
     if ball.distance(paddle_right) < 50 and ball.xcor() > 340 or ball.distance(paddle_left) < 50 and ball.xcor() < -340:
         ball.bounce_x()
 
-    if ball.xcor() > set_screen.get_max_x() or ball.xcor() < -set_screen.get_max_x():
+    # ball hits right end, left player gets a point
+    if ball.xcor() > set_screen.get_max_x():
+        scoreboard.add_point_to_left()
+        ball.reset_position()
+
+    if ball.xcor() < -set_screen.get_max_x():
+        scoreboard.add_point_to_right()
         ball.reset_position()
 
 
